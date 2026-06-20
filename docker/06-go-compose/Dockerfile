@@ -11,11 +11,13 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o app
 
 
-FROM alpine:latest
+FROM alpine
 
 WORKDIR /app
 
 COPY --from=builder /app/app .
+
+USER 10001
 
 EXPOSE 8080
 

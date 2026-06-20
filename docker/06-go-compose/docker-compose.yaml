@@ -14,6 +14,7 @@ services:
 
   app:
     build: .
+    read_only: true
     env_file:
       - .env
     ports:
